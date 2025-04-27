@@ -1,14 +1,20 @@
 import { SvgIconProps } from '@mui/material';
-import CreditCardIcon from 'components/icons/menu-icons/CreditCardIcon';
 import HomeIcon from 'components/icons/menu-icons/HomeIcon';
-import InvestIcon from 'components/icons/menu-icons/InvestIcon';
-import LoanIcon from 'components/icons/menu-icons/LoanIcon';
-import ServiceIcon from 'components/icons/menu-icons/ServiceIcon';
-import SettingsIcon from 'components/icons/menu-icons/SettingsIcon';
 import SignInIcon from 'components/icons/menu-icons/SignInIcon';
 import SignUpIcon from 'components/icons/menu-icons/SignUpIcon';
-import TransferIcon from 'components/icons/menu-icons/TransferIcon';
-import UserIcon from 'components/icons/menu-icons/UserIcon';
+
+import Notifications from 'components/icons/menu-icons/Notifications';
+import SavedItems from 'components/icons/menu-icons/SavedItems';
+import ProductStore from 'components/icons/menu-icons/ProductStore';
+import ProductOfferings from 'components/icons/menu-icons/ProductOfferings';
+import CreateProductOfferings from 'components/icons/menu-icons/CreateProductOfferings';
+import PublishedOfferings from 'components/icons/menu-icons/PublishedOfferings';
+import ArchivedOfferings from 'components/icons/menu-icons/ArchivedOfferings';
+import ProductSpecifications from 'components/icons/menu-icons/ProductSpecifications';
+import ListCustomers from 'components/icons/menu-icons/ListCustomers';
+import NewCustomerOrder from 'components/icons/menu-icons/NewCustomerOrder';
+import AllCustomerOrder from 'components/icons/menu-icons/AllCustomerOrder';
+import ManageUsers from 'components/icons/menu-icons/ManageUsers';
 
 export enum linkEnum {
   Dashboard = 'dashboard',
@@ -20,7 +26,7 @@ export enum linkEnum {
   Published_Offerings = 'Published Offerings',
   Archived_Offerings = 'Archived Offerings',
   Product_Specifications = 'Product Specifications',
-  List_Costomer = 'List Costomer',
+  List_Costomers = 'List Costomers',
   New_Customer_Order = 'New Customer Order',
   All_Customer_Order = 'All Customer Order',
   Manage_Users = 'Manage Users',
@@ -50,84 +56,84 @@ export const menuLinks: MenuLinkType[] = [
     id: 2,
     title: linkEnum.Notifications,
     link: '#!',
-    icon: SettingsIcon,
+    icon: Notifications,
     available: true,
   },
   {
     id: 3,
     title: linkEnum.Saved_Items,
     link: '#!',
-    icon: TransferIcon,
+    icon: SavedItems,
     available: true,
   },
   {
     id: 4,
     title: linkEnum.Product_Store,
     link: '#!',
-    icon: LoanIcon,
+    icon: ProductStore,
     available: true,
   },
   {
     id: 5,
     title: linkEnum.Product_Offerings,
     link: '#!',
-    icon: UserIcon,
+    icon: ProductOfferings,
     available: true,
   },
   {
     id: 6,
     title: linkEnum.Create_Product_Offerings,
     link: '#!',
-    icon: SettingsIcon,
+    icon: CreateProductOfferings,
     available: true,
   },
   {
     id: 7,
     title: linkEnum.Published_Offerings,
     link: '#!',
-    icon: CreditCardIcon,
+    icon: PublishedOfferings,
     available: true,
   },
   {
     id: 8,
     title: linkEnum.Archived_Offerings,
     link: '#!',
-    icon: InvestIcon,
+    icon: ArchivedOfferings,
     available: true,
   },
   {
     id: 9,
     title: linkEnum.Product_Specifications,
     link: '#!',
-    icon: ServiceIcon,
+    icon: ProductSpecifications,
     available: true,
   },
   {
     id: 10,
-    title: linkEnum.List_Costomer,
+    title: linkEnum.List_Costomers,
     link: '#!',
-    icon: SettingsIcon,
+    icon: ListCustomers,
     available: true,
   },
   {
     id: 11,
     title: linkEnum.New_Customer_Order,
     link: '#!',
-    icon: SettingsIcon,
+    icon: NewCustomerOrder,
     available: true,
   },
   {
     id: 12,
     title: linkEnum.All_Customer_Order,
     link: '#!',
-    icon: SettingsIcon,
+    icon: AllCustomerOrder,
     available: true,
   },
   {
     id: 13,
     title: linkEnum.Manage_Users,
     link: '#!',
-    icon: SettingsIcon,
+    icon: ManageUsers,
     available: true,
   },
   {
