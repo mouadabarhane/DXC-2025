@@ -1,40 +1,54 @@
-import { Button, Grid, IconButton, InputAdornment, Link, TextField } from '@mui/material';
-import IconifyIcon from 'components/base/IconifyIcon';
-import { useBreakpoints } from 'providers/useBreakpoints';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Button, Grid, IconButton, InputAdornment, Link, TextField } from '@mui/material';
+import axios from 'axios';
 
 const LoginForm = () => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const navigate = useNavigate();
-  const { up } = useBreakpoints();
-  const upSM = up('sm');
-  const handleClick = () => {
-    navigate('/transactions');
+  const [error, setError] = useState<string | null>(null);
+
+  const handleLogin = async () => {
+    try {
+      const response = await axios.post('http://localhost:5000/api/login', {
+        username,
+        password,
+      });
+
+      if (response.data.message === 'Login successful') {
+        window.location.href = '/DXC-OMT/'; // Redirect to transactions page
+      }
+    } catch (err) {
+      setError('Invalid username or password');
+    }
   };
+
   return (
     <>
       <Grid container spacing={3} sx={{ mb: 2.5 }}>
         <Grid item xs={12}>
           <TextField
             fullWidth
-            size={upSM ? 'medium' : 'small'}
-            name="email"
-            label="Email address"
+            label="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            error={!!error} // Show error if there's an error message
           />
         </Grid>
+
         <Grid item xs={12}>
           <TextField
             fullWidth
-            size={upSM ? 'medium' : 'small'}
-            name="password"
             label="Password"
             type={showPassword ? 'text' : 'password'}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            error={!!error} // Show error if there's an error message
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
                   <IconButton onClick={() => setShowPassword(!showPassword)} edge="end">
-                    <IconifyIcon icon={showPassword ? 'majesticons:eye' : 'majesticons:eye-off'} />
+                    {showPassword ? '👁️' : '🙈'}
                   </IconButton>
                 </InputAdornment>
               ),
@@ -42,21 +56,16 @@ const LoginForm = () => {
           />
         </Grid>
       </Grid>
-      <Grid container justifyContent="flex-end" sx={{ my: 3 }}>
+
+      <Grid container justifyContent="flex-end" sx={{ my: 2 }}>
         <Grid item>
-          <Link href="/authentication/forget-password" variant="subtitle2" underline="hover">
+          <Link href="/authentication/forget-password" underline="hover">
             Forgot password?
           </Link>
         </Grid>
       </Grid>
-      <Button
-        fullWidth
-        size={upSM ? 'large' : 'medium'}
-        type="submit"
-        variant="contained"
-        color="primary"
-        onClick={handleClick}
-      >
+
+      <Button fullWidth variant="contained" color="primary" onClick={handleLogin}>
         Login
       </Button>
     </>
