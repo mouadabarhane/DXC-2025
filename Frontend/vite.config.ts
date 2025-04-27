@@ -18,7 +18,7 @@ export default defineConfig({
       },
     }),
   ],
-  base: '/bankdash',
+  base: '/DXC-OMT/',
 
   //   preview: {
   //     port: 5000,

@@ -4,6 +4,7 @@ import paths, { rootPaths } from './path';
 import PublishedOfferingsPage from 'pages/PublishedOfferingsPage/PublishedOfferingsPage';
 import ArchivedOfferingsPage from 'pages/ArchivedOfferingsPage/ArchivedOfferingsPage';
 import CreateProductOfferingsPage from 'pages/CreateProductOfferingsPage/CreateProductOfferingsPage';
+import ProductSpecificationsPage from 'pages/ProductSpecificationsPage/ProductSpecificationsPage';
 
 /* ---------------- Lazy loads various components ------------------------- */
 const App = lazy(() => import('App'));
@@ -98,6 +99,10 @@ export const routes = [
             path: paths.CreateProductOfferingsPage,
             element: <CreateProductOfferingsPage />,
           },
+          {
+            path: paths.ProductSpecificationsPage,
+            element: <ProductSpecificationsPage />,
+          },
         ],
       },
       {
@@ -140,7 +145,7 @@ export const routes = [
 ];
 
 const router = createBrowserRouter(routes, {
-  basename: '/bankdash',
+  basename: '/DXC-OMT',
 });
 
 export default router;
